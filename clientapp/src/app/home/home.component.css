@@ -1,0 +1,26 @@
+h1 {
+    font-weight: 200;
+    font-size: 4rem;
+    color: #635bff;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+/* .btn,
+.btn-bd-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #635bff;
+    --bs-btn-border-color: #635bff;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #{shade-color(#635bff;, 10%)};
+    --bs-btn-hover-border-color: #{shade-color(#635bff, 10%)};
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #{shade-color(#635bff, 20%)};
+    --bs-btn-active-border-color: #{shade-color(#635bff, 20%)};
+} */

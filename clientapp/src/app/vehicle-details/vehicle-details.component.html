@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="d-flex p-0 mt-5 justify-content-center">
+        <div class="col-lg-3 col-sm">
+            <ul class="flex-column pt-5 align-items-center text-start">
+                <li class="mb-2 mt-5 ps-5" (click)="changeView('details')">
+                    <a id="details" [ngClass]="{grey: !detailsMenuBtn, bold: detailsMenuBold}">Bike details</a>
+                </li>
+                <li class="mb-2 ps-5" (click)="changeView('plan')">
+                    <a id="plan" [ngClass]="{grey: !planMenuBtn, bold: planMenuBold}">Select plan</a>
+                </li>
+                <li class="mb-2 ps-5" (click)="changeView('addon')">
+                    <a id="addon" [ngClass]="{grey: !addOnMenuBtn, bold: addOnMenuBold}">Select Add-ons</a>
+                </li>
+                <li class="mb-2 ps-5" (click)="changeView('personal')">
+                    <a id="personal" [ngClass]="{grey: !persMenuBtn, bold: persMenuBold}">Personal details</a>
+                </li>
+                <li class="mb-2 ps-5" (click)="changeView('checkout')">
+                    <a id="checkout" [ngClass]="{grey: !checkOutMenuBtn, bold: checkOutMenuBold}">Checkout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-sm">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

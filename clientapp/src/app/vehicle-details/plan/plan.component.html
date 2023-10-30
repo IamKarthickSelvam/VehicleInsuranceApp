@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div class="row container border bg-light rounded mb-3 shadow-lg bg-body rounded-4 justify-content-center">
+        <div class="fs-5 my-3">Select plan</div>
+        <div class="row mb-3">
+            <div class="col px-0">
+                <div class="p-3 border bg-light rounded">
+                    <div class="container px-0">
+                        <div class="row justify-content-between">
+                            <div class="col-5 fw-bold">
+                                {{vehicle.model}}
+                            </div>
+                            <div class="col-3 text-end">
+                                <a class="nav-link active" routerLink="/vehicle-details/details" class="edit">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fw-light">{{vehicle.status}} . Year: {{vehicle.regYear}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">Select plan tenure</div>
+        <div class="container d-flex justify-content-between mb-3 btn-group" role="group" gap="5">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked
+                (click)="onYearChange($event, 1)">
+            <label class="btn btn-outline-success me-2 rounded" for="btnradio1">1 Year</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"
+                (click)="onYearChange($event, 2)">
+            <label class="btn btn-outline-success me-2 rounded" for="btnradio2">2 Year</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"
+                (click)="onYearChange($event, 3)">
+            <label class="btn btn-outline-success me-2 rounded" for="btnradio3">3 Year</label>
+        </div>
+        <!-- <div class="container d-flex justify-content-between mb-3">
+            <button type="button" class="btn btn-lg active btn-outline-success">1 Year</button>
+            <button type="button" class="btn btn-lg btn-outline-success">2 Year</button>
+            <button type="button" class="btn btn-lg btn-outline-success">3 Year</button>
+        </div> -->
+        <div class="d-grid gap-2 mb-3">
+            <!-- <button class="btn active btn-primary btn-lg btn btn-light text-start" type="button" data-bs-toggle="button">
+                <div class="container mb-3">
+                    <div class="d-flex justify-content-start gap-2">
+                        <input class="form-check-input" type="radio" id="checkboxNoLabel" value="">
+                        <div class="text-start">Comprehensive plan</div>
+                    </div>
+                </div>
+                <p class="fs-6">✔ Covers damages to your bike</p>
+                <p class="fs-6 mb-3">✔ Covers damages to other's vehicle and property</p>
+                <div class="fs-6">
+                    <a href="">See Benefits</a>
+                </div>
+                <hr>
+                <p class="mb-3 text-dark">Rs. 914</p>
+            </button>
+            <button class="btn btn-primary btn-lg bbtn btn-light text-start" type="button" data-bs-toggle="button">
+                <div class="container mb-3">
+                    <div class="d-flex justify-content-start gap-2">
+                        <input class="form-check-input" type="radio" id="checkboxNoLabel" value="">
+                        <div class="text-start">Third party plan</div>
+                    </div>
+                </div>
+                <p class="fs-6">❌ Covers damages to your bike</p>
+                <p class="fs-6 mb-3">✔ Covers damages to other's vehicle and property</p>
+                <div class="fs-6">
+                    <a href="">See Benefits</a>
+                </div>
+                <hr>
+                <p class="mb-3 text-dark">Rs. 914</p>
+            </button> -->
+            <div class="btn-group-vertical" role="group">
+                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked
+                    (click)="onInsTypeChange($event, 'CP')">
+                <label class="btn btn-outline-success mb-3 rounded text-start" for="vbtn-radio1">
+                    <div class="container mb-3">
+                        <div class="text-start">Comprehensive plan</div>
+                    </div>
+                    <p class="fs-6">✔ Covers damages to your bike</p>
+                    <p class="fs-6 mb-3">✔ Covers damages to other's vehicle and property</p>
+                    <div class="fs-6">
+                        <a href="">See Benefits</a>
+                    </div>
+                    <hr>
+                    <p class="mb-3 text-dark fw-bold">{{compPremium | currency:'INR'}}</p>
+                </label>
+                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off"
+                    (click)="onInsTypeChange($event, 'TP')">
+                <label class="btn btn-outline-success rounded text-start" for="vbtn-radio2">
+                    <div class="container mb-3">
+                        <div class="text-start">Third party plan</div>
+                    </div>
+                    <p class="fs-6">❌ Covers damages to your bike</p>
+                    <p class="fs-6 mb-3">✔ Covers damages to other's vehicle and property</p>
+                    <div class="fs-6">
+                        <a href="">See Benefits</a>
+                    </div>
+                    <hr>
+                    <p class="mb-3 text-dark fw-bold">{{thirdPremium | currency:'INR'}}</p>
+                </label>
+            </div>
+        </div>
+        <div class="row mb-4" *ngIf="idvEditor">
+            <div class="col px-0">
+                <div class="p-3 border bg-light rounded">
+                    <div class="container px-0">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-5 bi bi-bicycle"> IDV (Insured value)</div>
+                            <div class="col-3 text-end">₹914 <a class="edit">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="fs-4">{{vehicle.finalPremium | currency:'INR'}} <span class="fs-6">+ GST</span></div>
+                <button type="submit" class="btn btn-success" (click)="changeView()">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
